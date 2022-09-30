@@ -1,56 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React, { useState } from 'react';
+import { Posts } from './features/posts/Posts';
+import { Search } from './features/searchTerm/Search'
+import { Subreddits } from './features/subreddits/Subreddits';
 import './App.css';
 
 function App() {
+  const [ showSearchNotch, setShowSearchNotch ] = useState(true);
+
+  const searchButtonClick = () => {
+    setShowSearchNotch(prevState => !prevState);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
+      <header>
+        <div className="header-container">
+          <div className="header-content">
+            <div id="search-left">
+              <img className="subreddits-icon" src="./icons/categories.svg" />
+              <img className="search-icon" src="./icons/search.svg" onClick={searchButtonClick} />
+            </div>
+            <div id="header-title-container">
+              <span id="header-title-left">quick</span><span id="header-title-right">R</span>
+            </div>
+            <div id="search-center">
+              <Search />
+            </div>
+            <div id="mode-switch-container">
+              <div id="mode-switch">
+              </div>
+            </div>
+          </div>
+          <div className="header-shadow"></div>
+          <div id="search-notch" className={showSearchNotch ? "hidden" : undefined}>
+            <Search />
+          </div>
+        </div>
       </header>
+
+      <main className="main-container">
+        <Posts />
+        <div id="loading-curtain">
+          <img src="./icons/loading.svg" />
+        </div>
+        <Subreddits />
+        <div id="refresh-button">
+          <img src="./icons/refresh.svg" />
+        </div>
+      </main>
+      <footer></footer>
     </div>
   );
 }

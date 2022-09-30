@@ -1,39 +1,689 @@
-.App {
-  text-align: center;
+/* Page styles */
+/* Present in index.css */
+
+/* Element specific styles */
+button {
+  border: 0px;
+  background: hsl(0, 0%, 100%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Filter classes */
+
+.dark {
+  display: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
+.light {
+  display: inline;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+/* Header Section */
+header {
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 1280px) {
+  header {
+    font-size: 0.8rem;
   }
 }
 
-.App-header {
-  min-height: 100vh;
+.header-container {
+  width: 100%;
+  position: fixed;
+  height: 5em;
+  z-index: 1;
+}
+
+.header-content {
+  box-sizing: border-box;
+  background-color: hsl(0, 0%, 100%);
+  height: 4em;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#search-left {
+  display: none;
+}
+
+#header-title-container {
+  width: 30%;
+  font-size: 2.8em;
+  font-family: 'Racing Sans One', cursive;
+  padding-left: 1.5rem;
+  text-align: left;
+  cursor: default;
+}
+
+@media only screen and (max-width: 700px), (orientation: portrait) {
+  #header-title-container {
+    padding-left: 0;
+    text-align: center;
+  }
+}
+
+#header-title-left {
+  color:hsl(240, 100%, 70%);
+}
+
+#header-title-right {
+  color:hsl(0, 100%, 50%);
+}
+
+
+
+.search-container {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.search {
+  box-sizing: border-box;
+  background-color: hsl(0, 0%, 85%);
+  border: 1px hsl(0, 0%, 70%) solid;
+  width: 16em;
+  height: 2.2em;
+  border-radius: 0.4em;
+  font-size: 1.2em;
+  outline: none;
+  padding: 5px;
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
+.search:hover,
+.search:focus {
+  border: 1px hsl(0, 0%, 30%) solid;
+  background-color: hsl(120, 73%, 80%);
+}
+
+.search-icon,
+.subreddits-icon {
+  width: auto;
+  height: 2em;
+}
+
+.subreddits-icon {
+ margin-right: 1em; 
+}
+
+.search-clear {
+  height: 2em;
+  width: 2em;
+  position: relative;
+  left: -5.5em;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 75%);
+  padding: 0.5em;
+}
+
+.search-clear:hover {
+  background-color: hsl(0, 100%, 70%)
+}
+
+.search-clear:focus {
+  background-color: hsl(0, 100%, 50%)
+}
+
+.search-clear img {
+  height: 1em;
+}
+
+#search-notch {
+  display: none;
+}
+
+@media only screen and (max-width: 700px), (orientation: portrait) {
+  #search-notch {
+    background: hsl(0, 0%, 90%);
+    border: 1px solid hsl(0, 0%, 80%);
+    box-shadow: 1px 2px hsl(0, 0%, 60%);
+    border-radius: 0.4em;
+    width: 28em;
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
   }
-  50% {
-    transform: translateY(10px);
+
+  .search {
+    font-size: 1.4em;
+    height: 2.2em;
+    width: 16em;
   }
+
+  .search-icon {
+    height: 3em;
+  }
+
+  .search-clear {
+    left: -5.5rem;
+    padding: 0.5em;
+  }
+
+  #search-left {
+    display: flex;
+    width: 33%;
+    padding-left: 1em;
+    align-items: center;
+  }
+
+  #search-center {
+    display: none;
+  }
+}
+
+#mode-switch-container {
+  width: 30%;
+  display: flex;
+  justify-content: right;
+  margin-right: 1rem;
+}
+
+#mode-switch {
+  background-color: hsl(0, 0%, 30%);
+  border: 2px solid hsl(0, 0%, 70%);
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.header-shadow {
+  background: linear-gradient(hsla(0, 5%, 40%, 1), hsla(0, 0%, 100%, 0));
+  height: 1em;
+}
+
+/* Main Section */
+.main-container {
+  font-size: 1rem;
+  padding-top: 4rem;
+  display: flex;
+}
+
+@media only screen and (max-width: 1280px) {
+  .main-container {
+    font-size: 0.8rem;
+  }
+}
+
+/* Main > Feed Section */
+.main-feed {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 75%;
+  padding: 0 2% 0 10%;
+}
+
+@media only screen and (max-width: 1280px) {
+  .main-feed {
+    padding: 0 1% 0 5%;
+  }
+}
+
+@media only screen and (max-width: 700px),(orientation: portrait) {
+  .main-feed {
+    width: 100%;
+    padding: 0 5%;
+  }
+}
+
+.post {
+  margin: 2em 0;
+  background-color: hsl(0, 0%, 95%);
+  border-radius: 10px;
+  padding: 0 0.7em;
+  border: 1px solid hsl(0, 0%, 90%);
+}
+
+.post-title {
+  color: hsl(0, 0%, 0%);
+  font-size: 2em;
+  font-weight: 900;
+  padding: 0.2em;
+}
+
+.post-title a {
+  text-decoration: none;
+  color: hsl(0, 0%, 0%);
+}
+
+.post-content {
+  background-color: hsl(0, 0%, 90%);
+  border-radius: 8px;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  position: relative;
+  z-index: 0;
+}
+
+.post-content.left {
+  justify-content: flex-start;
+}
+
+.post-content.text {
+  display: inline-block;
+}
+
+.post-content.text img,
+.post-content.link.left a img {
+  height: 1em;
+}
+
+.post-content img {
+  max-height: 80vh;
+  max-width: 50vw;
+  border-radius: 5px;
+}
+
+.gallery-buttons {
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 5em;
+  padding: 1em;
+  justify-content: space-between;
+}
+
+.gallery-buttons img {
+  cursor: pointer;
+}
+
+.gallery-info-wrap {
+  position: absolute;
+  height: 90%;
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.gallery-info {
+  background: hsl(0, 0%, 90%);
+  position: absolute;
+  padding: 0 0.5em;
+  border-radius: 1em;
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
+@media only screen and (max-width: 700px),(orientation: portrait) {
+  .post-content img {
+    max-height: 80vh;
+    max-width: 85vw;
+    border-radius: 5px;
+  }
+}
+
+.post-content video {
+  max-height: 80vh;
+  max-width: 50vw;
+  border-radius: 5px;
+}
+
+.post-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2em;
+  color: hsl(0, 0%, 0%);
+}
+
+.post-footer {
+  padding: 1em 0;
+  display: flex;
+}
+
+.post-footer img {
+  height: 2.5em;
+}
+
+.post-footer-left {
+  width: 50%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.post-votes-container,
+.post-comments-container {
+  display: flex;
+  align-items: center;
+  margin: 0 3em 0 0.5em;
+}
+
+.votes-count,
+.comments-count {
+  color:hsl(0, 0%, 0%);
+  font-size: 1.4em;
+  margin: 0 0.3em 0.3em;
+}
+
+.post-footer-right {
+  width: 50%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.post-footer-right img {
+  margin: 0 0.5em;
+}
+
+#loading-curtain {
+  position: fixed;
+  top: 5rem;
+  width: 59%;
+  height: 100%;
+  background: hsl(0, 0%, 100%);
+  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10%;
+  display: none;
+}
+
+#loading-curtain img {
+  width: 10%;
+  height: auto;
+  animation: pleaseWait 3s infinite linear;
+}
+
+/*
+@media only screen and (orientation: portrait) {
+  #loading-curtain {
+    width: 80%;
+    padding-bottom: 70%;
+  }
+}
+*/
+
+@keyframes pleaseWait {
   100% {
-    transform: translateY(0px);
+    transform: rotate(1turn);
   }
 }
+
+/* Main > Subredits Section */
+.main-subreddits {
+  box-sizing: border-box;
+  display: inline-block;
+  position: static;
+  box-sizing: border-box;
+  width: 25%;
+  min-width: 25em;
+  top: 5rem;
+  padding: 1%;
+  font-size: 1em;
+}
+
+#subreddits-title {
+  font-size: 2em;
+  font-weight: 900;
+}
+
+.subreddit {
+  border: 1px solid hsl(0, 0%, 40%);
+  border-radius: 1.5em;
+  margin: 1em 0;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  background-color: hsl(0, 0%, 90%);
+  cursor: pointer;
+}
+
+.subreddit:hover {
+  background-color: hsl(0, 0%, 85%);
+}
+
+.subreddit-name {
+  display: flex;
+  font-size: 1.6em;
+  font-weight: 900;
+  width: 90%;
+}
+
+.subreddit img {
+  border-radius: 50%;
+  height: 2.4em;
+  width: auto;
+  margin: 0 0.5em;
+}
+
+.subreddit.selected {
+  background-color: hsl(0, 0%, 75%);
+}
+
+@media only screen and (max-width: 950px) {
+  .main-subreddits {
+    min-width: 17em;
+  }
+
+  .subreddit-name {
+    font-size: 1em;
+  }
+
+  .subreddit img {
+    height: 1.8em;
+    margin: 0 0.4em;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .main-subreddits {
+    min-width: 14em;
+  }
+
+  #subreddits-title {
+    font-size: 1.6em;
+  }
+
+  .subreddit-name {
+    font-size: 0.8em;
+  }
+
+  .subreddit {
+    height: 2.5em;
+    margin: 0.6em 0;
+  }
+}
+
+/*Aicea*/
+@media only screen and (max-width: 700px),(orientation: portrait) {
+  .main-subreddits {
+    display: none;
+    left: 0;
+    top: 5rem;
+    width: 100%;
+    background-color: hsl(0, 0%, 100%);
+    height: 100%;
+  }
+
+  #subreddits-title {
+    color:hsl(0, 0%, 90%);
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .subreddit {
+    height: 4rem;
+    margin: 1rem 2rem;
+    border-radius: 2rem;
+  }
+
+  .subreddit img {
+    height: 3rem;
+    margin: 0 0.5rem;
+  }
+
+  .subreddit-name {
+    font-size: 2.5rem;
+  }
+
+  .subreddit-action {
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 0.5rem;
+    line-height: 2.8rem;
+  }
+
+  #subreddits-actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 4rem;
+    
+  }
+
+  #subreddits-apply {
+    color: hsl(120, 100%, 25%);
+    width: 30%;
+    line-height: 4rem;
+  }
+  #subreddits-cancel {
+    color: hsl(0, 100%, 50%);
+    width: 30%;
+    line-height: 4rem;
+  }
+}
+
+#refresh-button {
+  position: fixed;
+  bottom: 5%;
+  left: 65%;
+}
+
+#refresh-button img {
+  height: 8rem;
+  width: auto;
+}
+
+/*
+@media only screen and (orientation: portrait) {
+  #refresh-button {
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+  }
+}
+*/
+
+/* Dark Mode */
+/**
+
+.light {
+  display: none;
+}
+
+.dark {
+  display: inline;
+}
+
+.header-content {
+  background-color: hsl(0, 0%, 0%);
+}
+
+#search-left {
+  padding-top: 0.5rem;
+}
+
+#search {
+  background-color: hsl(0, 0%, 40%);
+}
+
+#search:hover {
+  border: 1px hsl(0, 0%, 90%) solid;
+}
+
+#search-clear {
+  background-color: hsl(0, 0%, 25%);
+}
+
+#mode-switch {
+  background-color: hsl(0, 0%, 90%);
+}
+
+.header-shadow {
+  background: linear-gradient(hsla(0, 0%, 0%, 1), hsla(0, 0%, 20%, 0));
+}
+
+#search-notch {
+  background: hsl(0, 0%, 20%);
+  border: 1px solid hsl(0, 0%, 30%);
+  box-shadow: 1px 2px hsl(0, 0%, 30%);
+}
+
+
+.main-container {
+  background-color: hsl(0, 0%, 20%);
+}
+
+.post-side {
+  background-color: hsl(0, 0%, 0%);
+}
+
+.votes-count {
+  color:hsl(0, 0%, 80%);
+}
+
+.post-main {
+  background-color: hsl(0, 0%, 10%);
+}
+
+.post-title {
+  color: hsl(0, 0%, 80%);
+}
+
+.post-info {
+  color: hsl(0, 0%, 80%);
+}
+
+#loading-curtain {
+  background-color: hsl(0, 0%, 10%);
+}
+
+#subreddits-title {
+  color:hsl(0, 0%, 70%);
+}
+
+.subreddit {
+  border: 2px solid hsl(0, 0%, 80%);
+  background-color: hsl(0, 0%, 60%);
+  color:hsl(0, 0%, 80%);
+}
+
+.subreddit:hover {
+  background-color: hsl(0, 0%, 50%);
+}
+
+.subreddit.selected {
+  border: 2px solid hsl(0, 0%, 80%);
+  background-color: hsl(0, 0%, 40%);
+}
+
+.main-subreddits {
+  background-color: hsl(0, 0%, 20%);
+}
+
+*/
+
+/*Why everything moves when slide bar?*/
