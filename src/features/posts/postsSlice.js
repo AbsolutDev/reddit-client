@@ -6,6 +6,8 @@ const endPointURL = 'https://www.reddit.com';
 
 const initialState = {
   data: [],
+  postShowingComments: -1,
+  postShowingShareMenu: -1,
   isLoading: false,
   hasError: false
 };
@@ -42,6 +44,7 @@ export const postsSlice = createSlice({
       state.data = localData.data.children;
       state.isLoading = false;
       state.hasError = false;
+      state.postShowingComments = -1;
       state.data.forEach((post, index) => {
         post.data.post_id = index;
         if (post.data.is_gallery) { post.data.gallery_data.selected = 0; }
@@ -49,30 +52,55 @@ export const postsSlice = createSlice({
     },
     setSelectedInGallery: (state, action) => {
       state.data[action.payload.postId].data.gallery_data.selected = action.payload.mediaId;
+    },
+    setPostShowingComments: (state, action) => {
+      state.postShowingComments = action.payload;
+    },
+    clearPostShowingComments: (state) => {
+      state.postShowingComments = -1;
+    },
+    setPostShowingShareMenu: (state, action) => {
+      state.postShowingShareMenu = action.payload;
+    },
+    clearPostShowingShareMenu: (state) => {
+      state.postShowingShareMenu = -1;
     }
   },
   extraReducers: {
     [getPosts.pending]: (state, action) => {
       state.isLoading = true;
       state.hasError = false;
+      state.postShowingComments = -1;
     },
     [getPosts.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.hasError = false;
+      state.postShowingComments = -1;
       state.data = action.payload;
     },
     [getPosts.rejected]: (state, action) => {
       state.isLoading = false;
       state.hasError = true;
+      state.postShowingComments = -1;
     }
   }
 });
 
 //Export action reducers
+export const {
+  getOfflinePosts,
+  setSelectedInGallery,
+  setPostShowingComments,
+  clearPostShowingComments,
+  setPostShowingShareMenu,
+  clearPostShowingShareMenu
+ } = postsSlice.actions;
 
-export const { getOfflinePosts, setSelectedInGallery } = postsSlice.actions;
-
+//Export selectors
 export const selectPosts = state => state.posts.data;
 export const selectPostsLoadingStatus = state => state.posts.isLoading;
+export const selectPostShowingComments = state => state.posts.postShowingComments;
+export const selectPostShowingShareMenu = state => state.posts.postShowingShareMenu;
 
+//Export slice reducer
 export default postsSlice.reducer;

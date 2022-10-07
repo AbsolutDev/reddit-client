@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectSubreddits, selectSubredditsLoadingStatus, selectSelectedSubreddit, getSubreddits, getOfflineSubreddits, setSelected } from './subredditsSlice';
+import { selectSubreddits, selectSelectedSubreddit, getSubreddits, getOfflineSubreddits, setSelected } from './subredditsSlice';
 import { getPosts } from '../posts/postsSlice';
 import { Subreddit } from '../../components/Subreddit.js';
 
-export function Subreddits() {
+export function Subreddits(props) {
   const allSubreddits = useSelector(selectSubreddits);
-  const isLoading = useSelector(selectSubredditsLoadingStatus);
   const selectedSubreddit = useSelector(selectSelectedSubreddit);
   const dispatch = useDispatch();
+  const { refresh } = props;
 
   function selectSubreddit(id, query) {
     dispatch(setSelected(id));
@@ -16,18 +16,15 @@ export function Subreddits() {
   }
 
   const onMount = () => {
-    dispatch(getOfflineSubreddits());
-    //dispatch(getSubreddits());
+    //dispatch(getOfflineSubreddits());
+    dispatch(getSubreddits());
   }
-  useEffect(onMount, [dispatch]);
+  useEffect(onMount, [refresh]);
 
   if (allSubreddits.length === 0) {
     return <div> Wait... </div>
   }
-  
-  if (isLoading) {
-    return <div> Loading... </div>
-  }
+
 
   function trimIconURL(url) {
     return url.slice(0,url.indexOf('?'));

@@ -5,13 +5,12 @@ const localData = require('./subredds.json');
 const defaultSubreddit = {
   data: {
     title: "Trending",
-    display_name: "TrendingWithAVeryLongTitleToCheck",
+    display_name: "Trending",
     description: "Today's trending posts",
     url: "/r/Popular/",
     icon_img : ""
   }
 }
-
 
 const initialState = {
   data: [defaultSubreddit],

@@ -2,11 +2,15 @@ import { configureStore } from '@reduxjs/toolkit';
 import postsReducer from '../features/posts/postsSlice';
 import searchTermReducer from '../features/searchTerm/searchTermSlice';
 import subredditsReducer from '../features/subreddits/subredditsSlice';
+import commentsReducer from '../features/comments/commentsSlice';
+import notificationReducer from '../features/notification/notificationSlice'
 
 export const store = configureStore({
   reducer: {
     posts: postsReducer,
     searchTerm: searchTermReducer,
-    subreddits: subredditsReducer
+    subreddits: subredditsReducer,
+    comments: commentsReducer,
+    notification: notificationReducer
   },
 });

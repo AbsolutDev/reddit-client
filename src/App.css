@@ -36,7 +36,7 @@ header {
   width: 100%;
   position: fixed;
   height: 5em;
-  z-index: 1;
+  z-index: 5;
 }
 
 .header-content {
@@ -364,6 +364,123 @@ header {
   margin: 0 3em 0 0.5em;
 }
 
+.post-comments-container {
+  padding: 0.4em;
+  border-radius: .3em;
+  cursor: pointer;
+}
+
+.post-comments-container:hover {
+  background-color: hsl(0, 0%, 90%);
+}
+
+.comments {
+  padding-bottom: 1em;
+}
+
+.comment,
+.reply {
+  padding: 0.5em 0;
+}
+
+.reply {
+  margin-left: 0.6em;
+  border-left: 3px solid hsl(0, 0%, 80%);
+  padding-left: .5em;
+}
+
+.comment-header {
+  display: flex;
+  width: 90%;
+}
+
+.comment-author {
+  font-weight: 900;
+  margin-right: 1em;
+}
+
+.comment-body {
+  background-color: hsl(0, 0%, 90%);
+  width: 90%;
+  border-radius: 10px;
+  margin: 0.3em 0 0.3em 0.5em;
+  padding: 0.3em;
+}
+
+.reply .comment-body {
+  width: 95%;
+}
+
+.comment-footer {
+  display: flex;
+  margin-left: 0.5em;
+}
+
+.comment-votes img {
+  margin: 0 0.2em;
+}
+
+.comment-replies,
+.reply-link,
+.reply-more {
+  margin-left: 1em;
+  color: hsl(240, 100%, 50%);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.reply-link a,
+.reply-more a,
+.comments-more a {
+  text-decoration: none;
+}
+
+.reply-link a:hover,
+.reply-more a:hover {
+  text-decoration: underline;
+}
+
+.reply-link img,
+.reply-more img,
+.comments-more img {
+  height: 1em;
+  margin-left: 3px;
+}
+
+.comment-replies:hover {
+  text-decoration: underline;
+}
+
+.comments-more,
+.replies-more {
+  margin-top: .5em;
+  color: hsl(240, 100%, 50%);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.comments-more:hover,
+.replies-more:hover {
+  text-decoration: underline;
+}
+
+.comments-close-container {
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  top: 5rem;
+}
+
+.comments-close {
+  background-color: hsl(240, 100%, 70%);
+  color: hsl(0, 0%, 100%);
+  opacity: 0.5;
+  cursor: pointer;
+  text-align: right;
+  padding: .2em .6em;
+  border-radius: 0.5em;
+}
+
 .votes-count,
 .comments-count {
   color:hsl(0, 0%, 0%);
@@ -378,25 +495,69 @@ header {
   align-items: center;
 }
 
+.post-share-button {
+  position: relative;
+  padding: 0.4em;
+  border-radius: .3em;
+  cursor: pointer;
+  display: flex;
+}
+
+.post-share-button:hover {
+  background-color: hsl(0, 0%, 90%);
+}
+
 .post-footer-right img {
   margin: 0 0.5em;
 }
 
+.post-share-menu {
+  position: absolute;
+  font-size: 1.4em;
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(0, 0%, 90%);
+  border-radius: .3em;
+  width: 10em;
+  right: 0;
+  top: 2.5em;
+  z-index: 1;
+}
+
+.post-share-menu div,
+.post-share-menu a {
+  padding: 0;
+  display: flex;
+  height: 2em;
+  align-items: center;
+  text-decoration: none;
+  color:hsl(0, 0%, 0%);
+}
+
+.post-share-menu div:hover {
+  background-color: hsl(0, 0%, 80%);
+}
+
+.post-share-menu img {
+  bborder: 1px solid black;
+  width: 1em;
+  height: auto;
+  margin: 0.5em;
+}
+
 #loading-curtain {
   position: fixed;
-  top: 5rem;
-  width: 59%;
+  top: -4rem;
+  width: 100%;
   height: 100%;
-  background: hsl(0, 0%, 100%);
-  opacity: 0.7;
+  background-color: hsl(0, 0%, 90%);
+  opacity: 0.9;
   display: flex;
   justify-content: center;
-  padding-bottom: 10%;
-  display: none;
+  padding-bottom: 10rem;
 }
 
 #loading-curtain img {
-  width: 10%;
+  width: 5rem;
   height: auto;
   animation: pleaseWait 3s infinite linear;
 }
@@ -570,11 +731,55 @@ header {
   position: fixed;
   bottom: 5%;
   left: 65%;
+  cursor: pointer;
 }
 
 #refresh-button img {
   height: 8rem;
   width: auto;
+}
+
+#app-notification {
+  position: fixed;
+  background-color: hsl(0, 0%, 100%);
+  border: hsl(0, 0%, 60%) 1px solid;
+  color: hsl(0, 0%, 50%);
+  top: 10%;
+  width: 30%;
+  height: 2em;
+  margin: 0 35%;
+  font-size: 1.6em;
+  border-radius: 0.3em;
+  text-align: center;
+  padding-top: 0.6em;
+}
+
+#app-notification.fade-in {
+  animation: fadeIn 0.5s ease;
+  opacity: 1;
+}
+
+#app-notification.fade-out {
+  animation: fadeOut 1.5s ease;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /*
