@@ -1,7 +1,7 @@
 import cleanHtml from "../utils/cleanHtml";
 import getAge from "../utils/getAge";
 
-export const Comment = ({ data, showHideReplies }) => {
+export const Comment = ({ data, showHideReplies, darkMode }) => {
   let repliesLinkTxt;
   let repliesCount = 0;
   let moreRepliesCount = 0;
@@ -44,7 +44,7 @@ export const Comment = ({ data, showHideReplies }) => {
         <div className="reply-more" key={index}>
           <a href={data.url} target="_blank">
             {reply.data.count} {index !== 0 && "more"} repl{reply.data.count > 1 ? "ies" : "y"}
-            <img src="./icons/link.svg" />
+            <img src={darkMode ? "./icons/linkD.svg" : "./icons/link.svg"} />
           </a>
         </div>
       )
@@ -58,12 +58,12 @@ export const Comment = ({ data, showHideReplies }) => {
         <div className="comment-body">{reply.data.body}</div>
         <div className="comment-footer">
           <div className="comment-votes">
-          <img className="light" src="./icons/arrow_upB.svg" />
+          <img src={darkMode ? "./icons/arrow_upD.svg" : "./icons/arrow_up.svg"} />
             {reply.data.ups}
-          <img className="light" src="./icons/arrow_downB.svg" />
+          <img src={darkMode ? "./icons/arrow_downD.svg" : "./icons/arrow_down.svg"} />
           </div>
           <div className="reply-link">
-            {reply.data.replies && <a href={"https://www.reddit.com" + reply.data.permalink} target="_blank">Continue this thread<img src="./icons/link.svg" /></a>}
+            {reply.data.replies && <a href={"https://www.reddit.com" + reply.data.permalink} target="_blank">Continue this thread<img src={darkMode ? "./icons/linkD.svg" : "./icons/link.svg"} /></a>}
           </div>
         </div>
       </div>
@@ -80,9 +80,9 @@ export const Comment = ({ data, showHideReplies }) => {
       </div>
       <div className="comment-footer">
         <div className="comment-votes">
-          <img className="light" src="./icons/arrow_upB.svg" />
+          <img src={darkMode ? "./icons/arrow_upD.svg":"./icons/arrow_up.svg"} />
           {data.votes}
-          <img className="light" src="./icons/arrow_downB.svg" />
+          <img src={darkMode ? "./icons/arrow_downD.svg":"./icons/arrow_down.svg"} />
         </div>
         <div className="comment-replies" onClick={repliesClickHandler}>
           {data.replies && repliesLinkTxt}

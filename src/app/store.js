@@ -4,6 +4,7 @@ import searchTermReducer from '../features/searchTerm/searchTermSlice';
 import subredditsReducer from '../features/subreddits/subredditsSlice';
 import commentsReducer from '../features/comments/commentsSlice';
 import notificationReducer from '../features/notification/notificationSlice'
+import displayModeReducer from '../features/displayMode/displayModeSlice'
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     searchTerm: searchTermReducer,
     subreddits: subredditsReducer,
     comments: commentsReducer,
-    notification: notificationReducer
+    notification: notificationReducer,
+    displayMode: displayModeReducer
   },
 });

@@ -6,10 +6,10 @@ export const searchTermSlice = createSlice ({
   name: 'searchTerm',
   initialState,
   reducers: {
-    updateSearchTerm: (state, action) => {
+    updateSearchTerm: (action) => {
       return action.payload;
     },
-    clearSearchTerm: (state) => {
+    clearSearchTerm: () => {
       return '';
     }
   }

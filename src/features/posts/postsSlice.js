@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { queryByTestId } from '@testing-library/react';
 
-const localData = require('./posts.json');
 const endPointURL = 'https://www.reddit.com';
+const defaultQuery = '/r/Popular/';
 
 const initialState = {
   data: [],
@@ -14,7 +14,7 @@ const initialState = {
 
 export const getPosts = createAsyncThunk(
   'posts/getPosts',
-  async (query) => {
+  async (query = defaultQuery) => {
     if (query.indexOf('.json') < 0) {
       query += '.json';
     }
@@ -40,16 +40,6 @@ export const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    getOfflinePosts: (state) => {
-      state.data = localData.data.children;
-      state.isLoading = false;
-      state.hasError = false;
-      state.postShowingComments = -1;
-      state.data.forEach((post, index) => {
-        post.data.post_id = index;
-        if (post.data.is_gallery) { post.data.gallery_data.selected = 0; }
-      });
-    },
     setSelectedInGallery: (state, action) => {
       state.data[action.payload.postId].data.gallery_data.selected = action.payload.mediaId;
     },
@@ -88,7 +78,6 @@ export const postsSlice = createSlice({
 
 //Export action reducers
 export const {
-  getOfflinePosts,
   setSelectedInGallery,
   setPostShowingComments,
   clearPostShowingComments,
@@ -99,8 +88,10 @@ export const {
 //Export selectors
 export const selectPosts = state => state.posts.data;
 export const selectPostsLoadingStatus = state => state.posts.isLoading;
+export const selectPostsErrorStatus = state => state.posts.hasError;
 export const selectPostShowingComments = state => state.posts.postShowingComments;
 export const selectPostShowingShareMenu = state => state.posts.postShowingShareMenu;
+export const selectPostsCount = state => state.posts.data.length;
 
 //Export slice reducer
 export default postsSlice.reducer;

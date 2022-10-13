@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="13.4"
-   height="15.4"
-   viewBox="0 0 13.4 15.4"
+   width="17.200001"
+   height="7.6999998"
+   viewBox="0 0 17.200001 7.6999999"
    version="1.1"
    id="svg8"
-   sodipodi:docname="search.svg"
+   sodipodi:docname="shareCopyLinkD.svg"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -25,55 +25,24 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="true"
      showgrid="false"
-     inkscape:zoom="24.0625"
-     inkscape:cx="-3.1376623"
-     inkscape:cy="10.015584"
+     inkscape:zoom="48.125"
+     inkscape:cx="12.893506"
+     inkscape:cy="5.2571429"
      inkscape:window-width="1920"
      inkscape:window-height="974"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg8"
-     width="20px"
-     fit-margin-top="0.1"
+     width="16px"
      fit-margin-left="0.1"
+     fit-margin-top="0.1"
      fit-margin-right="0.1"
      fit-margin-bottom="0.1" />
   <title
      id="title2">Group</title>
-  <g
-     id="icons"
-     stroke="none"
-     stroke-width="1"
-     fill="none"
-     fill-rule="evenodd"
-     transform="matrix(-1,0,0,1,14.1,0.1)"
-     style="stroke:#b2b2b2;stroke-opacity:1">
-    <g
-       id="Group"
-       transform="translate(1)"
-       stroke="#141c3a"
-       style="stroke:#b2b2b2;stroke-opacity:1">
-      <line
-         x1="3.5"
-         y1="10.5"
-         x2="0.5"
-         y2="14.5"
-         id="Line"
-         stroke-linecap="square"
-         style="stroke:#b2b2b2;stroke-opacity:1" />
-      <circle
-         id="Oval"
-         fill-opacity="0"
-         fill="#ffffff"
-         cx="7"
-         cy="6"
-         r="5.5"
-         style="stroke:#b2b2b2;stroke-opacity:1" />
-    </g>
-  </g>
   <metadata
-     id="metadata871">
+     id="metadata825">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -81,4 +50,16 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
+  <path
+     id="rect175"
+     style="fill:none;stroke:#cccccc;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 7.5990232,7.1 H 4.2961207 C 2.2484699,7.1 0.6,5.6505 0.6,3.85 0.6,2.0495 2.2484699,0.6 4.2961207,0.6 v 0 l 3.3029029,2e-8" />
+  <path
+     id="path1501"
+     style="fill:none;stroke:#cccccc;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="M 9.5990241,0.60000002 12.903879,0.6 C 14.95153,0.6 16.6,2.0495 16.6,3.85 16.6,5.6505 14.95153,7.1 12.903879,7.1 H 9.5990231" />
+  <path
+     style="fill:none;stroke:#cccccc;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 4.9887909,3.8499999 H 12.21121"
+     id="path1617" />
 </svg>

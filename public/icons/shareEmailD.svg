@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="17.200001"
+   height="14.2"
+   viewBox="0 0 17.200001 14.2"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="shareEmailD.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     showgrid="false"
+     inkscape:zoom="24.0625"
+     inkscape:cx="-2.8051948"
+     inkscape:cy="8.7688312"
+     inkscape:window-width="1920"
+     inkscape:window-height="974"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8"
+     width="16px"
+     fit-margin-left="0.1"
+     fit-margin-top="0.1"
+     fit-margin-right="0.1"
+     fit-margin-bottom="0.1" />
+  <title
+     id="title2">Group</title>
+  <metadata
+     id="metadata825">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Group</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     id="rect1908"
+     style="fill:#cccccc;stroke:none;stroke-width:0.999999;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
+     d="M 1.1621094 0.099609375 C 0.57348434 0.099609375 0.099609375 0.57348435 0.099609375 1.1621094 L 0.099609375 13.037109 C 0.099609375 13.625734 0.57348435 14.099609 1.1621094 14.099609 L 16.037109 14.099609 C 16.625734 14.099609 17.099609 13.625734 17.099609 13.037109 L 17.099609 1.1621094 C 17.099609 0.57348434 16.625734 0.099609375 16.037109 0.099609375 L 1.1621094 0.099609375 z M 1.6914062 1.2207031 A 0.5 0.5 0 0 1 2.0664062 1.3007812 L 8.5996094 5.7636719 L 15.134766 1.3007812 A 0.5 0.5 0 0 1 15.507812 1.2226562 A 0.5 0.5 0 0 1 15.828125 1.4316406 A 0.5 0.5 0 0 1 15.697266 2.1269531 L 8.8828125 6.78125 A 0.5 0.5 0 0 1 8.8378906 6.8007812 A 0.5 0.5 0 0 1 8.7773438 6.8261719 A 0.5 0.5 0 0 1 8.6074219 6.8574219 A 0.5 0.5 0 0 1 8.5390625 6.859375 A 0.5 0.5 0 0 1 8.3203125 6.7832031 A 0.5 0.5 0 0 1 8.3183594 6.78125 L 1.5019531 2.1269531 A 0.5 0.5 0 0 1 1.3710938 1.4316406 A 0.5 0.5 0 0 1 1.6914062 1.2207031 z " />
+</svg>
