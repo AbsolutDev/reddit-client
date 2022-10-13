@@ -1,28 +1,51 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectPosts, selectPostsLoadingStatus, getPosts, getOfflinePosts, setSelectedInGallery, selectPostShowingComments, setPostShowingComments, clearPostShowingComments, selectPostShowingShareMenu, clearPostShowingShareMenu, setPostShowingShareMenu } from './postsSlice';
+import { selectPosts, selectPostsErrorStatus, selectPostsLoadingStatus, getPosts, setSelectedInGallery, selectPostShowingComments, setPostShowingComments, clearPostShowingComments, selectPostShowingShareMenu, clearPostShowingShareMenu, setPostShowingShareMenu } from './postsSlice';
 import { clearComments } from '../comments/commentsSlice';
-import { selectSearchTerm } from '../searchTerm/searchTermSlice';
 import { selectDefaultSubredditURL } from '../subreddits/subredditsSlice';
 import { Post } from '../../components/Post.js';
 import getAge from '../../utils/getAge';
 import shortenNum from '../../utils/shortenNum';
 
-export function Posts(props) {
-  const { refresh } = props;
+export function Posts({ refresh, display }) {
   const dispatch = useDispatch();
   const allPosts = useSelector(selectPosts);
-  const searchTerm = useSelector(selectSearchTerm);
   const defaultSubredditURL = useSelector(selectDefaultSubredditURL);
   const postShowingComments = useSelector(selectPostShowingComments);
   const postShowingShareMenu = useSelector(selectPostShowingShareMenu);
-  
-  let filteredPosts = allPosts.filter((post, index) => post.data.title.toLowerCase().includes(searchTerm.toLowerCase()));
-  
+  const hasError = useSelector(selectPostsErrorStatus);
+  const isLoading = useSelector(selectPostsLoadingStatus);
+
   useEffect (() => { dispatch(getPosts(defaultSubredditURL)) }, [refresh]);
 
   if (allPosts.length === 0) {
-    return <div className="main-feed">Wait... </div>
+    if (isLoading) {
+      return (
+        <div className="main-feed">
+        <div id="no-content">
+          Please wait...
+        </div>
+      </div>
+      )
+    }
+    return (
+      <div className="main-feed">
+        <div id="no-content">
+          No results...
+        </div>
+      </div>
+    )
+  }
+
+  if (hasError) {
+    return (
+      <div className="main-feed">
+        <div id="no-content">
+          Oops, something went wrong :( <br/>
+          Try again? Or... something else?
+        </div>
+      </div>
+    )
   }
 
   const showComments = (postId) => {
@@ -45,8 +68,8 @@ export function Posts(props) {
   }
   
   return (
-    <div className="main-feed">
-      {filteredPosts.map(createPost)}
+    <div className={display ? "main-feed" : "main-feed no-scroll"} >
+      {allPosts.map(createPost)}
     </div>
   )
   
@@ -83,9 +106,15 @@ export function Posts(props) {
           }
           break;
         case "image":
-          postData.type = "image";
-          postData.content.img = post.data.url;
-          postData.content.mediaCount = 0;
+          if (post.data.preview.reddit_video_preview) {
+            postData.type = "video";
+            postData.content.video = clearVideoURL(post.data.preview.reddit_video_preview.fallback_url);
+          } else {
+            postData.type = "image";
+            postData.content.img = post.data.url;
+            postData.content.mediaCount = 0;
+          }
+          
           break;
         case "hosted:video":
           postData.type = "video";
@@ -104,7 +133,6 @@ export function Posts(props) {
           
           break;
         case "self":
-          alert("Self indeed. Post " + ix);
           break;
         default:
           if (post.data.is_gallery === true) {
@@ -114,7 +142,6 @@ export function Posts(props) {
             postData.content.mediaSelected = post.data.gallery_data.selected;
           } else {
             if (post.data.crosspost_parent) {
-              alert("Crosspost. Post " + ix);
               postData.type = "link";
               postData.content.link = post.data.url_overridden_by_dest;
             } else {

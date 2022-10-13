@@ -1,14 +1,16 @@
 import React, { useEffect,  } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getComments, setDisplayedComments, setDisplayedReplies, selectComments, selectCommentsLoadingStatus, selectDisplayComments } from './commentsSlice';
+import { selectDisplayMode } from '../displayMode/displayModeSlice';
 import { Comment } from '../../components/Comment';
-import getAge from '../../utils/getAge';
 import shortenNum from '../../utils/shortenNum';
 
 export const Comments = ({url, postId, setShowComments}) => {
   const allComments = useSelector(selectComments);
   const loadingStatus = useSelector(selectCommentsLoadingStatus);
   const displayComments = useSelector(selectDisplayComments);
+  const darkMode = useSelector(selectDisplayMode);
+
   const dispatch = useDispatch();
 
   useEffect (() => {
@@ -51,7 +53,7 @@ export const Comments = ({url, postId, setShowComments}) => {
         <div className="comments-more" key={ix}>
           <a href={url} target="_blank">
             {comment.data.count} {ix !== 0 && "more"} comment{comment.data.count > 1 && "s"}
-            <img src="./icons/link.svg" />
+            <img src={darkMode ? "./icons/linkD.svg" : "./icons/link.svg"} />
           </a>
         </div>
       )
@@ -72,7 +74,7 @@ export const Comments = ({url, postId, setShowComments}) => {
     }
 
     return (
-      <Comment data={commentData} key={ix} showHideReplies={showHideReplies} />
+      <Comment data={commentData} key={ix} showHideReplies={showHideReplies} darkMode={darkMode} />
     )
   }
   

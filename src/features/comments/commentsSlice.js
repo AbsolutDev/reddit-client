@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { queryByTestId } from '@testing-library/react';
 
 const initialState = {
   data: [],
@@ -47,7 +46,7 @@ export const commentsSlice = createSlice({
     }
   },
   extraReducers: {
-    [getComments.pending]: (state, action) => {
+    [getComments.pending]: (state) => {
       state.isLoading = true;
       state.hasError = false;
     },
@@ -57,7 +56,7 @@ export const commentsSlice = createSlice({
       state.data = action.payload;
       state.displayComments =  10;
     },
-    [getComments.rejected]: (state, action) => {
+    [getComments.rejected]: (state) => {
       state.isLoading = false;
       state.hasError = true;
     }
