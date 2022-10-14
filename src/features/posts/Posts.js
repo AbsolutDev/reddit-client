@@ -16,7 +16,7 @@ export function Posts({ refresh, display }) {
   const hasError = useSelector(selectPostsErrorStatus);
   const isLoading = useSelector(selectPostsLoadingStatus);
 
-  useEffect (() => { dispatch(getPosts(defaultSubredditURL)) }, [refresh]);
+  useEffect (() => { dispatch(getPosts(defaultSubredditURL)) }, [dispatch]);
 
   if (allPosts.length === 0) {
     if (isLoading) {

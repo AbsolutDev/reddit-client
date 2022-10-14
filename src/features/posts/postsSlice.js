@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { queryByTestId } from '@testing-library/react';
 
 const endPointURL = 'https://www.reddit.com';
 const defaultQuery = '/r/Popular/';

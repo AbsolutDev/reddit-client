@@ -42,7 +42,7 @@ export const Comment = ({ data, showHideReplies, darkMode }) => {
     if (reply.kind==="more") {
       return (
         <div className="reply-more" key={index}>
-          <a href={data.url} target="_blank" rel="external">
+          <a href={data.url} target="_blank" rel="noreferrer">
             {reply.data.count} {index !== 0 && "more"} repl{reply.data.count > 1 ? "ies" : "y"}
             <img src={darkMode ? "./icons/linkD.svg" : "./icons/link.svg"} alt="External link"/>
           </a>
@@ -63,7 +63,7 @@ export const Comment = ({ data, showHideReplies, darkMode }) => {
             <img src={darkMode ? "./icons/arrow_downD.svg" : "./icons/arrow_down.svg"} alt=""/>
           </div>
           <div className="reply-link">
-            {reply.data.replies && <a href={"https://www.reddit.com" + reply.data.permalink} target="_blank" rel="external">Continue this thread<img src={darkMode ? "./icons/linkD.svg" : "./icons/link.svg"} alt="External link" /></a>}
+            {reply.data.replies && <a href={"https://www.reddit.com" + reply.data.permalink} target="_blank" rel="noreferrer">Continue this thread<img src={darkMode ? "./icons/linkD.svg" : "./icons/link.svg"} alt="External link" /></a>}
           </div>
         </div>
       </div>

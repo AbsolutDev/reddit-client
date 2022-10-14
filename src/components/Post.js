@@ -50,7 +50,7 @@ export function Post (props) {
       case 'link':
         postContent = (
           <div className={postData.content.thumbnail ? "post-content link" : "post-content link left"}>
-            <a href={postData.content.link} target="_blank" rel="external">
+            <a href={postData.content.link} target="_blank" rel="noreferrer">
               {postData.content.thumbnail ? <img src={postData.content.thumbnail} alt="Post thumbnail" /> : shortenURL(postData.content.link)}
               {!postData.content.thumbnail && <img src={darkMode ? "./icons/linkD.svg" : "./icons/link.svg"} alt="External link" />}
             </a>
@@ -94,7 +94,7 @@ export function Post (props) {
         postContent = (
           <div className="post-content text">
             {postData.content.text.length > 500 ? postData.content.text.slice(0,500)+'...' : postData.content.text}
-            {postData.content.text.length > 500 && <a href={"https://www.reddit.com" + postData.url} target="_blank" rel="external"><img src={darkMode ? "./icons/linkD.svg" : "./icons/link.svg"} alt="Link to original post" /></a>}
+            {postData.content.text.length > 500 && <a href={"https://www.reddit.com" + postData.url} target="_blank" rel="noreferrer"><img src={darkMode ? "./icons/linkD.svg" : "./icons/link.svg"} alt="Link to original post" /></a>}
           </div>
         );
         break;
@@ -156,7 +156,7 @@ export function Post (props) {
   return (
     <div className="post">
       <div className="post-title">
-        <a href={"https://www.reddit.com" + postData.url} target="_blank" rel="external">{postData.title}</a>
+        <a href={"https://www.reddit.com" + postData.url} target="_blank" rel="noreferrer">{postData.title}</a>
       </div>
         {postContent}     
       <div className="post-info">

@@ -15,7 +15,7 @@ export const Comments = ({url, postId, setShowComments}) => {
 
   useEffect (() => {
     dispatch(getComments(url));
-  }, []);
+  }, [dispatch]);
 
   if (loadingStatus || allComments.length === 0 ) {
     return (
@@ -51,9 +51,9 @@ export const Comments = ({url, postId, setShowComments}) => {
     if (comment.kind === "more") {
       return (
         <div className="comments-more" key={ix}>
-          <a href={url} target="_blank">
+          <a href={url} target="_blank" rel="noreferrer">
             {comment.data.count} {ix !== 0 && "more"} comment{comment.data.count > 1 && "s"}
-            <img src={darkMode ? "./icons/linkD.svg" : "./icons/link.svg"} />
+            <img src={darkMode ? "./icons/linkD.svg" : "./icons/link.svg"} alt="External link" />
           </a>
         </div>
       )
