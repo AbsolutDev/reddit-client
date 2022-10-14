@@ -6,7 +6,8 @@ export const searchTermSlice = createSlice ({
   name: 'searchTerm',
   initialState,
   reducers: {
-    updateSearchTerm: (action) => {
+    updateSearchTerm: (state, action) => {
+      //alert(action.payload);
       return action.payload;
     },
     clearSearchTerm: () => {
