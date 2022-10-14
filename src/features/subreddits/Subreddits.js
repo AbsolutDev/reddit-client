@@ -11,7 +11,11 @@ export function Subreddits({ refresh, display, hideSubreddits }) {
   const extraSubreddit = useSelector(selectExtraSubreddit);
   const dispatch = useDispatch();
 
-  useEffect(() => { dispatch(getSubreddits()) }, [dispatch, refresh]);
+  useEffect(() => { 
+    dispatch(clearExtraSubreddit());
+    dispatch(getSubreddits());
+    dispatch(getPosts());
+  }, [dispatch, refresh]);
 
   if (allSubreddits.length === 0) {
     return <div> Wait... </div>

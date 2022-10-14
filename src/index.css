@@ -27,3 +27,7 @@ code {
   box-shadow: inset 0 0 10px 10px hsl(0, 0%, 30%);
   border: solid 1px transparent;
 }
+
+@viewport {
+  viewport-fit: contain;
+}

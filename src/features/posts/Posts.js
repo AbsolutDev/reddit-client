@@ -2,21 +2,19 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectPosts, selectPostsErrorStatus, selectPostsLoadingStatus, getPosts, setSelectedInGallery, selectPostShowingComments, setPostShowingComments, clearPostShowingComments, selectPostShowingShareMenu, clearPostShowingShareMenu, setPostShowingShareMenu } from './postsSlice';
 import { clearComments } from '../comments/commentsSlice';
-import { selectDefaultSubredditURL } from '../subreddits/subredditsSlice';
 import { Post } from '../../components/Post.js';
 import getAge from '../../utils/getAge';
 import shortenNum from '../../utils/shortenNum';
 
-export function Posts({ refresh, display }) {
+export function Posts({ display }) {
   const dispatch = useDispatch();
   const allPosts = useSelector(selectPosts);
-  const defaultSubredditURL = useSelector(selectDefaultSubredditURL);
   const postShowingComments = useSelector(selectPostShowingComments);
   const postShowingShareMenu = useSelector(selectPostShowingShareMenu);
   const hasError = useSelector(selectPostsErrorStatus);
   const isLoading = useSelector(selectPostsLoadingStatus);
 
-  useEffect (() => { dispatch(getPosts(defaultSubredditURL)) }, [dispatch, defaultSubredditURL]);
+  useEffect (() => { dispatch(getPosts()) }, [dispatch]);
 
   if (allPosts.length === 0) {
     if (isLoading) {

@@ -83,7 +83,6 @@ export const { setSelected, setExtraSubreddit, clearExtraSubreddit } = subreddit
 export const selectSubreddits = state => state.subreddits.data;
 export const selectSubredditsLoadingStatus = state => state.subreddits.isLoading;
 export const selectSelectedSubreddit = state => state.subreddits.selected;
-export const selectDefaultSubredditURL = state => state.subreddits.data[1].data.url;
 export const selectExtraSubreddit = state => state.subreddits.data[0];
 export const selectSubredditNames = state => {
   const subNames = [];

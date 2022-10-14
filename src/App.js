@@ -6,14 +6,13 @@ import { selectSubredditsLoadingStatus, selectSelectedSubreddit, setSelected, cl
 import { clearNotificationMessage, setNotificationFadeOut, selectNotificationMessage, selectNotificationFadeOut } from './features/notification/notificationSlice';
 import { selectDisplayMode, switchDisplayMode } from './features/displayMode/displayModeSlice';
 import { clearSearchTerm } from './features/searchTerm/searchTermSlice';
-import { Search,  } from './features/searchTerm/Search'
+import { Search } from './features/searchTerm/Search'
 import { Subreddits } from './features/subreddits/Subreddits';
 import { Notification } from './features/notification/Notification';
 import './App.css';
 
 function App() {
   const [ showSearchNotch, setShowSearchNotch ] = useState(false);
-  const [ refreshPosts, setRefreshPosts ] = useState(false);
   const [ refreshSubreddits, setRefreshSubreddits ] = useState(false);
   const [ showSubredditsList, setShowSubredditsList ] = useState(false);
   const postsLoading = useSelector(selectPostsLoadingStatus);
@@ -48,8 +47,8 @@ function App() {
     hideNotch();
     hideSubredditsList();
     document.getElementById("app-top").scrollIntoView({behaviour: "smooth", block: "start"});
-    setRefreshPosts(prevState => !prevState);
     setRefreshSubreddits(prevState => !prevState);
+    dispatch(clearSearchTerm());
   }
 
   const switchDisplayModeClick = () => {
@@ -96,12 +95,12 @@ function App() {
         </div>
       </header>
       <main className="main-container" id="app-top">
-        <Posts refresh={refreshPosts} display={!showSubredditsList} />
+        <Posts display={!showSubredditsList} />
         <Subreddits refresh={refreshSubreddits} display={showSubredditsList} hideSubreddits={hideSubredditsList} />
         <div id="loading-curtain" className={(postsLoading || subredditsLoading) ? "" : "hidden"}>
           <img src="./icons/loading.svg" alt="" />
         </div>
-        <div id="refresh-button" onClick={refreshButtonClick}>
+        <div id="refresh-button" className={extraSubredditSource === 'search' ? "hidden":undefined} onClick={refreshButtonClick}>
           <img src="./icons/refresh.svg" alt="Refresh button" />
         </div>
         {notificationMessage && <Notification msg={notificationMessage} setFadeOut={initiateFadeOut} fadeOut={notificationFadeOut} />}
