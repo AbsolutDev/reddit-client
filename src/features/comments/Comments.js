@@ -15,7 +15,7 @@ export const Comments = ({url, postId, setShowComments}) => {
 
   useEffect (() => {
     dispatch(getComments(url));
-  }, [dispatch]);
+  }, [dispatch, url]);
 
   if (loadingStatus || allComments.length === 0 ) {
     return (
