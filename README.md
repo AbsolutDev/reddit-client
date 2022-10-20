@@ -35,26 +35,32 @@ To run the application in your local environment:
 ![quickR](./public/images/preview/preview1.jpg)
 
 The client can be used to navigate through the top 25 trending posts along with the latest 25 posts in the top most popular subreddits.
+
 ----
 ![Searching posts](./public/images/preview/preview2.jpg)
 
 Search can also be used to display the latest 25 posts that match the searched term.
+
 ----
 ![Posts details](./public/images/preview/preview3.jpg)
 
 The posts are displayed with details such as the subreddit, the post's author and date, number of upvotes and number of comments.
+
 ----
 ![Posts details](./public/images/preview/preview4.jpg)
 
 The Share menu allows copying the URL or the code for embedding in a page, or sharing the post URL in an email - all referencing the actual Reddit post.
+
 ----
 ![Comments thread](./public/images/preview/preview5.jpg)
 
 The user can display comments and navigate through the threads or replies, however for longer threads or large number of comments links will open the actual Reddit post in a new browser tab.
+
 ----
 ![Portrait mode](./public/images/preview/preview6.jpg)
 
 The app will adapt to various displays, from desktop and tablet to smartphone in either portrait or landscape mode. The functionality will remain intact, with some elements such as the search bar and the list of subreddits available to open using the buttons in the header.
+
 ----
 ![Dark mode](./public/images/preview/preview7.jpg)
 
