@@ -1,19 +1,17 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { updateSearchTerm, clearSearchTerm, selectSearchTerm } from "./searchTermSlice";
+import { useDispatch } from 'react-redux';
 import { setExtraSubreddit, setSelected } from '../subreddits/subredditsSlice';
 import { getPosts } from '../posts/postsSlice';
 
-export function Search({ hideNotch, hideSubreddits }) {
-  const searchTerm = useSelector(selectSearchTerm);
+export function Search({ hideNotch, hideSubreddits, updateSearchTerm, searchTerm, clearSearchTerm }) {
   const dispatch = useDispatch();
 
   const onSearchTermChangeHandler = (e) => {
-    dispatch(updateSearchTerm(e.target.value));
+    updateSearchTerm(e.target.value);
   }
 
   const onClearSearchClickHandler = () => {
-    dispatch(clearSearchTerm());
+    clearSearchTerm();
   }
 
   const handleSubmit = (e) => {
