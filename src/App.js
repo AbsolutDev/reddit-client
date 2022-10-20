@@ -5,7 +5,7 @@ import { selectPostsLoadingStatus, selectPostsCount, getPosts } from './features
 import { selectSubredditsLoadingStatus, selectSelectedSubreddit, setSelected, clearExtraSubreddit, selectExtraSubredditSource } from './features/subreddits/subredditsSlice';
 import { clearNotificationMessage, setNotificationFadeOut, selectNotificationMessage, selectNotificationFadeOut } from './features/notification/notificationSlice';
 import { selectDisplayMode, switchDisplayMode } from './features/displayMode/displayModeSlice';
-import { clearSearchTerm } from './features/searchTerm/searchTermSlice';
+import { clearSearchTerm, updateSearchTerm, selectSearchTerm } from './features/searchTerm/searchTermSlice';
 import { Search } from './features/searchTerm/Search'
 import { Subreddits } from './features/subreddits/Subreddits';
 import { Notification } from './features/notification/Notification';
@@ -23,11 +23,20 @@ function App() {
   const postsCount = useSelector(selectPostsCount);
   const selectedSubreddit = useSelector(selectSelectedSubreddit);
   const extraSubredditSource = useSelector(selectExtraSubredditSource);
+  const searchTerm = useSelector(selectSearchTerm);
 
   const dispatch = useDispatch();
 
   const searchButtonClick = () => {
     setShowSearchNotch(prevState => !prevState);
+  }
+
+  const setSearchTermHandler = (term) => {
+    dispatch(updateSearchTerm(term));
+  }
+
+  const clearSearchTermHandler = () => {
+    dispatch(clearSearchTerm());
   }
 
   const subredditsButtonClick = () => {
@@ -81,7 +90,7 @@ function App() {
               <span id="header-title-left" onClick={refreshButtonClick}>quick</span><span id="header-title-right" onClick={refreshButtonClick}>R</span>
             </div>
             <div id="search-center">
-              <Search hideNotch={hideNotch} />
+              <Search hideNotch={hideNotch} searchTerm={searchTerm} updateSearchTerm={setSearchTermHandler} clearSearchTerm={clearSearchTermHandler} />
             </div>
             <div id="mode-switch-container">
               <div id="mode-switch" onClick={switchDisplayModeClick}>
@@ -90,7 +99,7 @@ function App() {
           </div>
           <div className="header-shadow"></div>
           <div id="search-notch" className={showSearchNotch ? undefined : "hidden"}>
-            <Search hideNotch={hideNotch} hideSubreddits={hideSubredditsList} />
+            <Search hideNotch={hideNotch} hideSubreddits={hideSubredditsList} searchTerm={searchTerm} updateSearchTerm={setSearchTermHandler} clearSearchTerm={clearSearchTermHandler} />
           </div>
         </div>
       </header>
