@@ -86,5 +86,4 @@ On narrower screens (portrait mode or under 768px), the app will adapt by hiding
 
 ## Known Issues
 - videos have no sound. It's a limitation of the [Reddit JSON API](https://github.com/reddit-archive/reddit/wiki/JSON).
-- the page seems to slightly exceed the width of a smartphone screen in portrait mode. This has been noticed in Chrome on both Android and iPhone and allows slightly sliding the page horizontally.
-- in absence of an official documentation, I have tried to think of and cover as many post formats as possible, but I cannot guarantee I haven't left any out. Such posts would be shown as 'Unknown content type'
+- in absence of an official documentation, I have tried to think of and cover as many post formats as possible, but I cannot guarantee I haven't left any out. Such posts would be shown as 'Unknown content type'.
