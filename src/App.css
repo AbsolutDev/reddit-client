@@ -444,7 +444,7 @@ header {
 .post-info {
   display: flex;
   justify-content: space-between;
-  font-size: 1.2em;
+  font-size: 1em;
   color: hsl(0, 0%, 0%);
 }
 
@@ -849,14 +849,16 @@ header {
   }
 
   #subreddits-title {
-    font-size: 4em;
+    font-size: 3em;
     text-align: center;
     margin: 0.5em 0 0.5em;
   }
 
   .subreddit {
     height: 3rem;
-    width: 45em;
+    wwidth: 35em;
+    max-width: 90%;
+    min-width: 45em;
     border-radius: 2rem;
     margin: 0 auto;
     margin-bottom: 1em;
@@ -870,7 +872,7 @@ header {
   }
 
   .subreddit-name {
-    font-size: 3.5em;
+    font-size: 2.5em;
   }
 }
 
