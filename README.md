@@ -13,7 +13,7 @@ A client for quickly browsing trending Reddit posts and popular subreddits.
 ## General Info
 This project was created as part of the [Codecademy Pro](https://www.codecademy.com/) course for [Front-End Engineer](https://www.codecademy.com/learn/paths/front-end-engineer-career-path) career path, to showcase in-depth understanding of HTML, CSS, JavaScript, React and Redux.
 
-The app has been deployed [here] (https://celadon-malabi-4b4a22.netlify.app/)
+The app has been deployed [here](https://celadon-malabi-4b4a22.netlify.app/)
 
 ## Technologies Used
 * [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
