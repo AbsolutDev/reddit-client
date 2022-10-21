@@ -856,9 +856,7 @@ header {
 
   .subreddit {
     height: 3rem;
-    wwidth: 35em;
-    max-width: 90%;
-    min-width: 45em;
+    width: 90%;
     border-radius: 2rem;
     margin: 0 auto;
     margin-bottom: 1em;
