@@ -639,6 +639,7 @@ header {
 }
 
 .comments-close-container {
+  background-color: red;
   display: flex;
   justify-content: flex-end;
   position: sticky;
@@ -646,12 +647,17 @@ header {
 }
 
 .comments-close {
+  position: sticky;
+  top: 5rem;
+  left: 70%;
   background-color: hsl(240, 100%, 70%);
   color: hsl(0, 0%, 100%);
   cursor: pointer;
-  text-align: right;
+  text-align: center;
+  line-height: 1.5em;
   padding: .2em .6em;
   border-radius: 0.5em;
+  width: 8.5em;
 }
 
 .votes-count,

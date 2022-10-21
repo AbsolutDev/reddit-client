@@ -80,10 +80,8 @@ export const Comments = ({url, postId, setShowComments}) => {
   
   return (
     <div className="comments">
-      <div className="comments-close-container">
-        <div className="comments-close" onClick={commentsButtonHandler}>
-          X Close comments
-        </div>
+      <div className="comments-close" onClick={commentsButtonHandler}>
+        X Close comments
       </div>
       {allComments.slice(0,displayComments).map(createComment)}
       <div className="comments-more" onClick={moreCommentsButtonHandler}>
